@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            padding: 10px;
+            background-color: rgb(31, 31, 32);
+            color: white;
+            font-family: sans-serif;
+        }
+    
+        h4{
+            font-size: 22px;
+            color: rgb(149, 5, 5);
+            
+        }
+        h6{
+            font-size: 20px;
+            color: rgb(157, 157, 248);
+        }
+    
+        pre{
+            background-color: white;
+            color: orangered;
+            padding: 10px;
+            font-size: 18px;
+    
+            margin-top: 20px;
+        }
+    </style>
+<body>
+    
+    <h4>Question 1 - "We are interested in retrieving only the students' names; all the names should be in caps.
+
+        ['JOHN', 'BABA', 'YAGA', 'WICK']"</h4>
+    <h6>Ans-
+        <br>
+        <pre>let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] 
+          
+          
+          let ans = studentRecords.map((elem)=>{
+             return elem.name.toUpperCase()
+              
+          })
+          console.log(ans)</pre>
+    </h6>
+    <h4>
+        Question 2 - "Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+
+        [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"
+    </h4>
+
+    <h6>Ans- 
+        <br>
+        <pre>
+            let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] 
+          
+          
+          let ans = studentRecords.filter((elem)=>{
+             return elem.marks>50
+              
+          })
+          console.log(ans)
+        </pre>
+    </h6>
+
+    <h4>Question 3 - Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</h4>
+    <h6>
+        Ans- 
+        <br>
+        <pre>
+            let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] 
+          
+          
+          let ans = studentRecords.filter((elem)=>{
+             return elem.marks>50 && elem.id>120
+              
+          })
+          console.log(ans)
+        </pre>
+    </h6>
+
+
+    <h4>
+        Question - 4 -Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.
+    </h4>
+    <h6>
+        Ans - 
+        <br>
+        <pre>
+        let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] 
+          
+          
+          let ans2=0
+          let ans = studentRecords.map((elem)=>{
+            return ans2+=elem.marks
+          })
+         console.log(ans2)
+
+        </pre>
+    </h6>
+
+    <h4>Question -5 -</h4>
+    <h6>Ans - 
+        <br>
+       <pre>
+        let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+        {name: 'Baba', id: 101, marks : 23 },
+        {name: 'yaga', id: 200, marks : 45 },
+        {name: 'Wick', id: 115, marks : 75 } ] 
+        
+        let ans = studentRecords.filter((elem)=>{
+          return elem.marks>50
+        })
+      ans.map((item)=>console.log(item.name))
+       </pre>
+    </h6>
+
+    <h4>Question 6 - This time we are required to print the sum of marks of the students with id > 120.</h4>
+    <h6>Ans - 
+        <br>
+        <pre>
+            let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] 
+          
+          ans2=0
+          let ans = studentRecords.filter((elem)=>{
+            return elem.id>120
+          })
+        ans.map((item)=> ans2+=item.marks)
+        console.log(ans2)
+        </pre>
+    </h6>
+
+    <h4>Question -7 - This time we are required to print the total marks of the students with marks greater 
+        than 50 after a grace of 15 marks has been added to those students who scored less than 50.</h4>
+
+        <h6>
+            Ans - 
+            <br>
+            <pre>
+                let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ] 
+          
+          ans2=0
+          grace=15
+          var graceGrate50 =0
+           var passedGrate50 =0
+          let gracedStud = studentRecords.filter((elem)=>{
+           if(elem.marks<50){
+               let greater50 = elem.marks+=grace
+               if(greater50>50){
+                  graceGrate50 = greater50
+               }
+               
+           } 
+           if(elem.marks>50){
+              passedGrate50 += elem.marks
+           }
+           
+          })
+      
+     console.log(passedGrate50)
+      
+   
+            </pre>
+        </h6>
+
+        <h4>Question 8 -</h4>
+        <h6>Ans - 
+            <br>
+            <pre>var arr = []
+                function createObj(name,classs,rollno){
+                         this.name = name
+                        this.classs = classs
+                        this.rollno = rollno
+                }
+                      
+                      var obj1 = new createObj("amit","Btech","000111")
+                      
+                       var obj2 = new createObj("Rahul","Btech","000112")
+                        var obj3 = new createObj("amit","Btech","000113")
+                         var obj4 = new createObj("amit","Btech","000114")
+                          var obj5 = new createObj("amit","Btech","000115")
+                           var obj6 = new createObj("amit","Btech","000116")
+                            arr.push(obj1,obj2,obj3,obj4,obj5,obj6)
+                      console.log(arr)
+                  </pre>
+        </h6>
+</body>
+</html>
